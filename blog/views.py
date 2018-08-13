@@ -10,3 +10,10 @@ def home(request, username):
     'currentuser' : username
   }
   return render(request, 'pages/home.html', context)
+
+def single(request, single):
+    single = Post.objects.get(id=single)
+    context = {
+        'post': single
+    }
+    return render(request, 'pages/single.html', context)
